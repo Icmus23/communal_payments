@@ -8,22 +8,27 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    const HOT_WATER_RATE            = 83.1; // куб гарячей воды
-    const COLD_WATER_RATE           = 6.84; // куб холодной воды
-    const WATER_OUTFALL             = 6.93; // водоотвод
-    const ELECTRICITY_LESS_THAN_100 = 0.714; // электричество до 100 кВТ
-    const ELECTRICITY_MORE_THAN_100 = 1.29; // электричество больше 100 кВТ
-    const FLAT_RATE                 = 110.54; // содержание придворовых территорий
-    const INTERCOM_RATE             = 15.60; // домофон
+    const HOT_WATER_RATE            = 83.1;    // куб гарячей воды
+    const COLD_WATER_RATE           = 6.84;    // куб холодной воды
+    const WATER_OUTFALL             = 6.93;    // водоотвод
+    const ELECTRICITY_LESS_THAN_100 = 0.714;   // электричество до 100 кВТ
+    const ELECTRICITY_MORE_THAN_100 = 1.29;    // электричество больше 100 кВТ
+    const FLAT_RATE                 = 110.54;  // содержание придворовых территорий
+    const INTERCOM_RATE             = 15.60;   // домофон
     const HEATING_RATE              = 1182.31; // отопление
+
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
-        $hotWaterAmount = $this->calculateHotWaterAmount(7);
-        $coldWaterAmount = $this->calculateColdWaterAmount(3);
-        $electricityAmount = $this->calculateElectricityAmount(131);
+        $hotWaterCubicMeters = 7;
+        $coldWaterCubicMeters = 3;
+        $electricityKilowatts = 131;
+
+        $hotWaterAmount = $this->calculateHotWaterAmount($hotWaterCubicMeters);
+        $coldWaterAmount = $this->calculateColdWaterAmount($coldWaterCubicMeters);
+        $electricityAmount = $this->calculateElectricityAmount($electricityKilowatts);
         $sum =
             $hotWaterAmount +
             $coldWaterAmount +
@@ -33,6 +38,14 @@ class DefaultController extends Controller
             self::HEATING_RATE;
 
         return $this->render('default/index.html.twig', [
+            'hotWaterRate' => self::HOT_WATER_RATE,
+            'coldWaterRate' => self::COLD_WATER_RATE,
+            'waterOutfall' => self::WATER_OUTFALL,
+            'electricityLessThan100Rate' => self::ELECTRICITY_LESS_THAN_100,
+            'electricityMoreThan100Rate' => self::ELECTRICITY_MORE_THAN_100,
+            'hotWaterCubicMeters' => $hotWaterCubicMeters,
+            'coldWaterCubicMeters' => $coldWaterCubicMeters,
+            'electricityKilowatts' => $electricityKilowatts,
             'hotWaterAmount' => $hotWaterAmount,
             'coldWaterAmount' => $coldWaterAmount,
             'electricityAmount' => $electricityAmount,
@@ -58,7 +71,7 @@ class DefaultController extends Controller
         $hundred = 100;
 
         if ($kilowatts > $hundred) {
-            return ($hundred * self::ELECTRICITY_LESS_THAN_100) + ($kilowatts - $hundred) * self::ELECTRICITY_MORE_THAN_100;
+            return $hundred * self::ELECTRICITY_LESS_THAN_100 + ($kilowatts - $hundred) * self::ELECTRICITY_MORE_THAN_100;
         } else {
             return $kilowatts * self::ELECTRICITY_LESS_THAN_100;
         }

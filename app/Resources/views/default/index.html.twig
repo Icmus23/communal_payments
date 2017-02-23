@@ -1,9 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>Горячая вода: {{ hotWaterAmount }}</p>
-    <p>Холодная вода: {{ coldWaterAmount }}</p>
-    <p>Электричество: {{ electricityAmount }}</p>
+    <p>Горячая вода: {{hotWaterCubicMeters}} * ({{hotWaterRate}} + {{waterOutfall}}) = {{ hotWaterAmount }}</p>
+    <p>Холодная вода: {{coldWaterCubicMeters}} * ({{coldWaterRate}} + {{waterOutfall}}) = {{ coldWaterAmount }}</p>
+    {% if electricityKilowatts > 100 %}
+        <p>
+            Электричество:
+            100 * {{electricityLessThan100Rate}} +
+            {{electricityKilowatts - 100}} * {{electricityMoreThan100Rate}}
+            = {{ electricityAmount }}
+        </p>
+    {% else %}
+        <p>Электричество: {{electricityKilowatts}} * {{electricityLessThan100Rate}} = {{ electricityAmount }}</p>
+    {% endif %}
     <p>Отопление: {{ heatingRate }}</p>
     <p>Квартира: {{ flatRate }}</p>
     <p>Домофон: {{ intercomRate }}</p>
