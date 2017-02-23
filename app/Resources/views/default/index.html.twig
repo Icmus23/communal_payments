@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Горячая вода: {{ hotWaterAmount }}</p>
+    <p>Холодная вода: {{ coldWaterAmount }}</p>
+    <p>Электричество: {{ electricityAmount }}</p>
+    <p>Отопление: {{ heatingRate }}</p>
+    <p>Квартира: {{ flatRate }}</p>
+    <p>Домофон: {{ intercomRate }}</p>
+    <p>-------------------------------</p>
+    <p>Итого: {{ sum }}</p>
+{% endblock %}
