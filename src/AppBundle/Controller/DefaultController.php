@@ -11,20 +11,20 @@ class DefaultController extends Controller
     const HOT_WATER_RATE            = 83.1;    // куб гарячей воды
     const COLD_WATER_RATE           = 6.84;    // куб холодной воды
     const WATER_OUTFALL             = 6.93;    // водоотвод
-    const ELECTRICITY_LESS_THAN_100 = 0.714;   // электричество до 100 кВТ
-    const ELECTRICITY_MORE_THAN_100 = 1.29;    // электричество больше 100 кВТ
-    const FLAT_RATE                 = 110.54;  // содержание придворовых территорий
+    const ELECTRICITY_LESS_THAN_100 = 0.9;   // электричество до 100 кВТ
+    const ELECTRICITY_MORE_THAN_100 = 1.68;    // электричество больше 100 кВТ
+    const FLAT_RATE                 = 98.12;  // содержание придворовых территорий
     const INTERCOM_RATE             = 15.60;   // домофон
-    const HEATING_RATE              = 1182.31; // отопление
+    const HEATING_RATE              = 769.83; // отопление
 
     /**
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
     {
-        $hotWaterCubicMeters = 7;
+        $hotWaterCubicMeters = 5;
         $coldWaterCubicMeters = 3;
-        $electricityKilowatts = 131;
+        $electricityKilowatts = 139;
 
         $hotWaterAmount = $this->calculateHotWaterAmount($hotWaterCubicMeters);
         $coldWaterAmount = $this->calculateColdWaterAmount($coldWaterCubicMeters);
