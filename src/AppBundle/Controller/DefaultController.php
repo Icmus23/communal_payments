@@ -67,6 +67,13 @@ class DefaultController extends Controller
         return $cubicMeters * (self::COLD_WATER_RATE + self::WATER_OUTFALL);
     }
 
+    /**
+     * Calculates electricity amount
+     *
+     * @param $kilowatts
+     *
+     * @return int
+     */
     private function calculateElectricityAmount($kilowatts)
     {
         $hundred = 100;
