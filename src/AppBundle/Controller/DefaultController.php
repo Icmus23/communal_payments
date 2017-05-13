@@ -15,7 +15,9 @@ class DefaultController extends Controller
     const ELECTRICITY_MORE_THAN_100 = 1.68;    // электричество больше 100 кВТ
     const FLAT_RATE                 = 98.12;  // содержание придворовых территорий
     const INTERCOM_RATE             = 15.60;   // домофон
-    const HEATING_RATE              = 769.83; // отопление
+    const HEATING_RATE              = 6.66; // отопление
+
+    const HUNDRED                   = 100;
 
     /**
      * @Route("/", name="homepage")
@@ -23,9 +25,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $hotWaterCubicMeters = 5;
+        $hotWaterCubicMeters = 3;
         $coldWaterCubicMeters = 3;
-        $electricityKilowatts = 139;
+        $electricityKilowatts = 90;
 
         $hotWaterAmount = $this->calculateHotWaterAmount($hotWaterCubicMeters);
         $coldWaterAmount = $this->calculateColdWaterAmount($coldWaterCubicMeters);
@@ -53,15 +55,30 @@ class DefaultController extends Controller
             'flatRate' => self::FLAT_RATE,
             'intercomRate' => self::INTERCOM_RATE,
             'heatingRate' => self::HEATING_RATE,
-            'sum' => $sum
+            'sum' => $sum,
+            'hundred' => self::HUNDRED,
         ]);
     }
 
+    /**
+     * Calculates hot water amount
+     *
+     * @param $cubicMeters
+     *
+     * @return float
+     */
     private function calculateHotWaterAmount($cubicMeters)
     {
         return $cubicMeters * (self::HOT_WATER_RATE + self::WATER_OUTFALL);
     }
 
+    /**
+     * Calculates cold water amount
+     *
+     * @param $cubicMeters
+     *
+     * @return float
+     */
     private function calculateColdWaterAmount($cubicMeters)
     {
         return $cubicMeters * (self::COLD_WATER_RATE + self::WATER_OUTFALL);
@@ -72,14 +89,13 @@ class DefaultController extends Controller
      *
      * @param $kilowatts
      *
-     * @return int
+     * @return float
      */
     private function calculateElectricityAmount($kilowatts)
     {
-        $hundred = 100;
-
-        if ($kilowatts > $hundred) {
-            return $hundred * self::ELECTRICITY_LESS_THAN_100 + ($kilowatts - $hundred) * self::ELECTRICITY_MORE_THAN_100;
+        if ($kilowatts > self::HUNDRED) {
+            return self::HUNDRED *self::ELECTRICITY_LESS_THAN_100 +
+                ($kilowatts - self::HUNDRED) * self::ELECTRICITY_MORE_THAN_100;
         } else {
             return $kilowatts * self::ELECTRICITY_LESS_THAN_100;
         }

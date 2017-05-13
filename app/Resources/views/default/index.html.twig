@@ -3,11 +3,11 @@
 {% block body %}
     <p>Горячая вода: {{hotWaterCubicMeters}} * ({{hotWaterRate}} + {{waterOutfall}}) = {{ hotWaterAmount }}</p>
     <p>Холодная вода: {{coldWaterCubicMeters}} * ({{coldWaterRate}} + {{waterOutfall}}) = {{ coldWaterAmount }}</p>
-    {% if electricityKilowatts > 100 %}
+    {% if electricityKilowatts > hundred %}
         <p>
             Электричество:
             100 * {{electricityLessThan100Rate}} +
-            {{electricityKilowatts - 100}} * {{electricityMoreThan100Rate}}
+            {{electricityKilowatts - hundred}} * {{electricityMoreThan100Rate}}
             = {{ electricityAmount }}
         </p>
     {% else %}
