@@ -11,11 +11,11 @@ class DefaultController extends Controller
     const HOT_WATER_RATE            = 83.1;    // куб гарячей воды
     const COLD_WATER_RATE           = 6.84;    // куб холодной воды
     const WATER_OUTFALL             = 6.93;    // водоотвод
-    const ELECTRICITY_LESS_THAN_100 = 0.9;   // электричество до 100 кВТ
+    const ELECTRICITY_LESS_THAN_100 = 0.9;     // электричество до 100 кВТ
     const ELECTRICITY_MORE_THAN_100 = 1.68;    // электричество больше 100 кВТ
-    const FLAT_RATE                 = 98.12;  // содержание придворовых территорий
+    const FLAT_RATE                 = 98.12;   // содержание придворовых территорий
     const INTERCOM_RATE             = 15.60;   // домофон
-    const HEATING_RATE              = 6.66; // отопление
+    const HEATING_RATE              = 6.66;    // отопление
 
     const HUNDRED                   = 100;
 
