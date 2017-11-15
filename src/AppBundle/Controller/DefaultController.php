@@ -26,8 +26,8 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $hotWaterCubicMeters = 0;
-        $coldWaterCubicMeters = 11;
-        $electricityKilowatts = 230;
+        $coldWaterCubicMeters = 10;
+        $electricityKilowatts = 305;
         // стоимость горячей воды
         $hotWaterAmount = $this->calculateHotWaterAmount($hotWaterCubicMeters);
         // стоимость холодной воды
