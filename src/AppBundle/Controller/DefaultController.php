@@ -56,7 +56,7 @@ class DefaultController extends Controller
             'flatRate' => self::FLAT_RATE,
             'intercomRate' => self::INTERCOM_RATE,
             'heatingRate' => self::HEATING_RATE,
-            'sum' => $sum,
+            'sum'                        => $sum,
             'hundred' => self::HUNDRED,
         ]);
     }
