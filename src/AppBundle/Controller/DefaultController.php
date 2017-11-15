@@ -42,8 +42,8 @@ class DefaultController extends Controller
             self::HEATING_RATE;
 
         return $this->render('default/index.html.twig', [
-            'hotWaterRate' => self::HOT_WATER_RATE,
-            'coldWaterRate' => self::COLD_WATER_RATE,
+            'hotWaterRate'               => self::HOT_WATER_RATE,
+            'coldWaterRate'              => self::COLD_WATER_RATE,
             'waterOutfall' => self::WATER_OUTFALL,
             'electricityLessThan100Rate' => self::ELECTRICITY_LESS_THAN_100,
             'electricityMoreThan100Rate' => self::ELECTRICITY_MORE_THAN_100,
