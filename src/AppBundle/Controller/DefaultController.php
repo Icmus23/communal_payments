@@ -8,14 +8,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    const HOT_WATER_RATE            = 84.45;    // куб гарячей воды
-    const COLD_WATER_RATE           = 8.44;    // куб холодной воды
-    const WATER_OUTFALL             = 7.36;    // водоотвод
-    const ELECTRICITY_LESS_THAN_100 = 0.9;     // электричество до 100 кВТ
-    const ELECTRICITY_MORE_THAN_100 = 1.68;    // электричество больше 100 кВТ
-    const FLAT_RATE                 = 223.01;   // содержание придворовых территорий
-    const INTERCOM_RATE             = 15.60;   // домофон
-    const HEATING_RATE              = 0;    // отопление
+    const HOT_WATER_RATE            = 84.45;// куб гарячей воды
+    const COLD_WATER_RATE           = 8.44;// куб холодной воды
+    const WATER_OUTFALL             = 7.36;// водоотвод
+    const ELECTRICITY_LESS_THAN_100 = 0.9;// электричество до 100 кВТ
+    const ELECTRICITY_MORE_THAN_100 = 1.68;// электричество больше 100 кВТ
+    const FLAT_RATE                 = 223.01;// содержание придворовых территорий
+    const INTERCOM_RATE             = 15.60;// домофон
+    const HEATING_RATE              = 0;// отопление
 
     const HUNDRED                   = 100;
 
