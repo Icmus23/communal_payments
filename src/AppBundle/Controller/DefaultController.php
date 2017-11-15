@@ -30,6 +30,7 @@ class DefaultController extends Controller
         $electricityKilowatts = 230;
 
         $hotWaterAmount = $this->calculateHotWaterAmount($hotWaterCubicMeters);
+        // стоимость холодной воды
         $coldWaterAmount = $this->calculateColdWaterAmount($coldWaterCubicMeters);
         $electricityAmount = $this->calculateElectricityAmount($electricityKilowatts);
         $sum =
