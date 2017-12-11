@@ -13,7 +13,7 @@ class DefaultController extends Controller
     const WATER_OUTFALL             = 7.36;// водоотвод
     const ELECTRICITY_LESS_THAN_100 = 0.9;// электричество до 100 кВТ
     const ELECTRICITY_MORE_THAN_100 = 1.68;// электричество больше 100 кВТ
-    const FLAT_RATE                 = 223.01;// содержание придворовых территорий
+    const FLAT_RATE                 = 245.43;// содержание придворовых территорий
     const INTERCOM_RATE             = 15.60;// домофон
     const HEATING_RATE              = 0;// отопление
 
@@ -27,7 +27,7 @@ class DefaultController extends Controller
     {
         $hotWaterCubicMeters = 0;
         $coldWaterCubicMeters = 10;
-        $electricityKilowatts = 305;
+        $electricityKilowatts = 329;
         // стоимость горячей воды
         $hotWaterAmount = $this->calculateHotWaterAmount($hotWaterCubicMeters);
         // стоимость холодной воды
